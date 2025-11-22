@@ -113,8 +113,8 @@ a:hover {
 }
 
 .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 45px;
     margin-right: 10px;
 }
 
@@ -240,6 +240,66 @@ a:hover {
     color: var(--color-secondary);
     margin-bottom: 10px;
 }
+
+/*videos*/
+/* --- 1. Estilização da Seção de Comentários --- */
+.comentarios {
+    padding: 60px 20px;
+    background-color: var(--color-background); /* #f8f9fa */
+    text-align: center;
+}
+
+.comentarios h4 {
+    font-size: 2rem;
+    color: var(--color-secondary); /* Azul Marinho */
+    margin-bottom: 40px;
+}
+
+/* --- 2. Container dos Vídeos (Grid Responsivo) --- */
+.comentarios .videos {
+    display: grid;
+    /* Cria um grid que se ajusta automaticamente para exibir 2 colunas
+       em telas maiores e 1 coluna em telas muito pequenas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 3. Estilo e Responsividade dos IFRAMES --- */
+.comentarios .videos iframe {
+    /* Garante que o iframe preencha 100% da sua célula no grid */
+    width: 100%;
+    /* Define uma altura fixa para que todos os vídeos tenham o mesmo tamanho vertical, 
+       mantendo a proporção de 16:9 de forma aproximada. */
+    height: 200px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Configuração para a Animação de Hover */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 3px solid transparent; /* Para a animação da borda */
+}
+
+/* --- 4. Animação ao Passar o Cursor (Hover Effect) --- */
+.comentarios .videos iframe:hover {
+    /* * Efeito de Levantamento e Escala (Animação) 
+     * Transforma o vídeo, movendo-o ligeiramente para cima e aumentando-o um pouco.
+     */
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 10px 25px rgba(220, 53, 69, 0.4); /* Sombra com a cor primária (vermelho) */
+    border: 3px solid var(--color-primary); /* Borda de destaque */
+}
+
+/* --- Media Query para Telas Menores (Responsividade da Altura) --- */
+@media (max-width: 500px) {
+    .comentarios .videos iframe {
+        /* Aumenta a altura para telas de celular, pois haverá apenas 1 coluna */
+        height: 250px; 
+    }
+}
+
 
 /* Section Contacto */
 .contact-section {
